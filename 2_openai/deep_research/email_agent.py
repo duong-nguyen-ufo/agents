@@ -19,10 +19,11 @@ def send_email_tool(subject: str, text_body: str, html_body: str) -> str:
         text_body: The body of the email as plain text
         html_body: The HTML body of the email
     """
-    if USE_EMAIL:
-        send_email(subject, text_body, html_body)
-    else:
-        push(f"Subject: {subject}\n\n{text_body}")
+    # if USE_EMAIL:
+        # send_email(subject, text_body, html_body)
+    # else:
+    #     push(f"Subject: {subject}\n\n{text_body}")
+    yield f"Subject: {subject}\n\n{text_body}"  # print out the email instead of sending email becaues did not want to set up email snder or push notifications 
     return "Email sent successfully"
 
 
